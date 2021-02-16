@@ -1,12 +1,3 @@
-2021-02-07  Alexander Miller  <alex.miller@gmx.de>
-
-	* Makefile.am (TESTS_ENVIRONMENT): Quote variables.
-	(valgrind_cmd): Unquote variable.
-
-2021-02-08  Érico Nogueira  <ericonr@disroot.org>
-
-	* run-debuginfod-find.sh: Check for cpio availability.
-
 2021-02-04  Frank Ch. Eigler <fche@redhat.com>
 
 	* run-debuginfod-find.sh: Smoke test --fdcache-mintmp option handling.
