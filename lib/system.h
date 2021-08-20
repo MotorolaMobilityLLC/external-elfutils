@@ -38,15 +38,26 @@
 #include <endian.h>
 #include <byteswap.h>
 #include <unistd.h>
-#include <string.h>
 #include <stdarg.h>
-#include <stdlib.h>
 
 #if defined(HAVE_ERROR_H)
 #include <error.h>
 #elif defined(HAVE_ERR_H)
-extern int error_message_count;
-void error(int status, int errnum, const char *format, ...);
+#include <err.h>
+
+static int error_message_count = 0;
+
+static inline void error(int status, int errnum, const char *format, ...) {
+  va_list argp;
+
+  va_start(argp, format);
+  verr(status, format, argp);
+  va_end(argp);
+
+  if (status)
+    exit(status);
+  ++error_message_count;
+}
 #else
 #error "err.h or error.h must be available"
 #endif
