@@ -1,3 +1,36 @@
+2021-10-06  Mark Wielaard  <mark@klomp.org>
+
+	* elflint.c (check_sections): Don't dereference databits if bad.
+
+2021-09-09  Dmitry V. Levin  <ldv@altlinux.org>
+
+	* findtextrel.c: Include "libeu.h".
+	(open_rootdir_file): New function.
+	(process_file): Use it to open file inside rootdir.
+	* Makefile.am (findtextrel_no_Wstack_usage): Remove.
+
+2021-09-06  Dmitry V. Levin  <ldv@altlinux.org>
+
+	* objdump.c (show_disasm): Replace asprintf followed by
+	error(EXIT_FAILURE) with xasprintf.
+	* readelf.c (handle_gnu_hash): Likewise.
+	* unstrip.c (handle_output_dir_module, main): Likewise.
+
+	* elflint.c (check_sections): Remove cast of xcalloc return value.
+	* findtextrel.c (process_file): Remove casts of malloc and realloc
+	return values.
+	* nm.c (get_local_names, show_symbols_sysv, show_symbols): Remove
+	casts of xmalloc return values.
+	* readelf.c (print_hash_info, handle_sysv_hash, handle_sysv_hash64,
+	handle_gnu_hash): Remove cast of xcalloc return value.
+	(print_debug_units): Remove casts of xmalloc return values.
+	* strip.c (handle_elf): Remove casts of xcalloc and xmalloc return
+	values.
+
+2021-09-05  Dmitry V. Levin  <ldv@altlinux.org>
+
+	* Makefile.am (AM_LDFLAGS): Add $(STACK_USAGE_NO_ERROR).
+
 2021-08-20  Saleem Abdulrasool  <abdulras@google.com>
 
 	* elfclassify.c: Remove error.h include.
