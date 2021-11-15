@@ -38,7 +38,9 @@
 #include <endian.h>
 #include <byteswap.h>
 #include <unistd.h>
+#include <string.h>
 #include <stdarg.h>
+#include <stdlib.h>
 
 #if defined(HAVE_ERROR_H)
 #include <error.h>
